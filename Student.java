@@ -1,18 +1,20 @@
 //package Student-Management-System;
 
+import java.util.ArrayList;
+
 public class Student {
 private String name;
 private int id;
 private int age;
-private String course;
-private double marks;
+private ArrayList<String> courses;
+private ArrayList<Double> marks;
 
 // constructor
-Student(String name ,int id,int age,String course,double marks){
+Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Double>marks){
     this.name=name;
     this.id=id;
     this.age=age;
-    this.course=course;
+  this. courses=courses;
     this.marks=marks;
 
 }
@@ -31,11 +33,11 @@ Student(String name ,int id,int age,String course,double marks){
         this.age=age;
 
         }
-        void setCourse(String course){
-        this.course=course;
+      void setCourse(ArrayList<String>courses){
+        this.courses=courses;
 
         }
-        void setMarks(Double marks){
+        void setMarks( ArrayList<Double> marks){
         this.marks=marks;
 
         }
@@ -51,22 +53,19 @@ Student(String name ,int id,int age,String course,double marks){
         int getAge(){
             return age;
         }
-        String getCource(){
-            return course;
+       ArrayList<String> getCourse(){
+        
+            return courses;
         }
+
+            
+        
        
-        Double getMarks(){
+       ArrayList<Double> getMarks(){
             return marks;
         }
 
     // print detail method
 
-    void printDetail(){
-        System.out.println("Name is : " + this.name);
-        System.out.println("Id is : " + this.id);
-        System.out.println("Age is : "+this.age);
-        System.out.println("Course is : "+ this.course);
-        System.out.println("Marks is : "+ this.marks);
-    }
-    
+   
 }
