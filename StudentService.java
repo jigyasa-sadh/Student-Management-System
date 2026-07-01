@@ -5,58 +5,111 @@ public class StudentService {
     Scanner sc= new Scanner(System.in);
     ArrayList<Student> students=new ArrayList<>();
     
-        ArrayList<String> courses=new ArrayList<>();
+         ArrayList<String> courses=new ArrayList<>();
          ArrayList<Double> marks=new ArrayList<>();
      
-//add() method
+//add() method-------------------------------
     void addStudent(){
         System.out.println("Enter Student Details ---------");
 
-        // add name
-        System.out.print("name : ");
-        String name= sc.nextLine();
-        
+    // add name
+          
+              String name;
+
+              while(true){
+                
+                System.out.print("name : ");
+                name= sc.nextLine();
+                sc.nextLine();
+                if(!name.trim().isEmpty()){
+                    break;
+                }
+                System.out.println("name can not be empty------------");
+                    
+              }  
+                
+                
+    // add id
+                int id;
+                 while(true)
+                    {
+                    try{
+                    
+                    System.out.print("id : ");
+                    id=sc.nextInt();
+                    break;
+                    }catch(InputMismatchException e){
+                            System.out.println("invalid input ! please enter the valid input");
+                            sc.nextLine();
+                            
+                        }
+                }
+
+
+
       
-        // add id
-        System.out.print("id : ");
-        int id=sc.nextInt();
-      
-       // add age
+    // add age
        int age;
-       while(true){
-        try{
-        System.out.print("age : ");
-         age=sc.nextInt();
-        break;
-        }catch(InputMismatchException e){
-            System.out.println("invalid input ! please enter the valid input");
-            sc.nextLine();
-        }
-    }
-        
-       
-        System.out.println("Enter the no of course to be added");
-        int n=sc.nextInt();
+            while(true){
+                try{
+                System.out.print("age : ");
+                age=sc.nextInt();
+                break;
+                }catch(InputMismatchException e){
+                    System.out.println("invalid input ! please enter the valid input");
+                    sc.nextLine();
+                }
+            }
+                
+    // add course and marks        
+                    System.out.println("Enter the no of course to be added");
+                    int n=sc.nextInt();
         for(int i=1;i<=n;i++){
-            sc.nextLine();
-         // add course   
-        System.out.print("course " + i +" :");
-        String c=sc.nextLine();
-        courses.add(c);
-       
+                // add course
+                 while(true)
+                    {
+                     
+                    sc.nextLine();
+                    System.out.print("course " + i +" :");
+                    String c=sc.nextLine();
+                    if(!c.trim().isEmpty()){
+                    courses.add(c);
+                    break;
+                    }
+                    System.out.println("course can not be empty");
 
-        //add marks
-        System.out.print("marks : " );
-        marks.add(sc.nextDouble());
-    
-}
-    sc.nextLine();
-        students.add(new Student(name, id, age,courses , marks));
-        System.out.println("successfully added-----");
+                    }
 
-}
+                    //add marks
+                    while(true)
+                        {
+                            try{
+                            System.out.print("marks : " );
+                            double m=sc.nextDouble();
+                            if(m<0 || m>100){
+                                System.out.println("Enter marks between 0 and 100");
+                                 continue;
+                            }
+                            marks.add(m);
+                            sc.nextLine();
+                            break;
+                            } catch(InputMismatchException e){
+                                System.out.println("invalid input ! please enter the valid input");
+                               sc.nextLine();
+                            }
 
-// show() mwthod  
+
+}                  }
+                
+            
+                     sc.nextLine();
+                     // add th object od student class in students arraylist
+                    students.add(new Student(name, id, age,courses , marks));
+                    System.out.println("successfully added-----");
+
+            }
+
+// show() method ----------------------------- 
     void showStudent(){
        if(students.isEmpty()){
         System.out.println(" student List is empty");
@@ -89,7 +142,7 @@ public class StudentService {
 }
 }
 
-//removw() method
+//remove() method---------------------------
     void removeStudent(){
         System.out.println("Enter essential detail to remove the student -----------");
         System.out.print("id : ");
@@ -110,7 +163,7 @@ public class StudentService {
         }
     }
 
-//search() student
+//search() student--------------------
     void searchStudent(){
         
         System.out.println("Enter thr student Id ");
@@ -130,7 +183,7 @@ public class StudentService {
     }
 
 
-  //update() method
+//update() method--------------------------------
   void updateStudent(){
    
        System.out.println("Enter the student is id to be updated ");
@@ -152,10 +205,7 @@ public class StudentService {
 
        }
 
-       
-
-
-  }
+    }
 
 
 

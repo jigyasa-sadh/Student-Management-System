@@ -65,7 +65,6 @@ Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Doubl
             return marks;
         }
 
-    // print detail method
 
    
 }
