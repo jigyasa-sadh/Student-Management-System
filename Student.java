@@ -20,40 +20,40 @@ Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Doubl
 }
 
 //setter method
-        void setName(String name){
+       public void setName(String name){
         this.name=name;
 
         }
 
-        void setId(int id){
+       public void setId(int id){
         this.id=id;
 
         }
-        void setAge(int age){
+        public void setAge(int age){
         this.age=age;
 
         }
-      void setCourse(ArrayList<String>courses){
+      public void setCourse(ArrayList<String>courses){
         this.courses=courses;
 
         }
-        void setMarks( ArrayList<Double> marks){
+        public void setMarks( ArrayList<Double> marks){
         this.marks=marks;
 
         }
 
 //getter method
-        String getName(){
+       public  String getName(){
             return name;
         }
 
-        int getId(){
+        public int getId(){
             return id;
         }
-        int getAge(){
+        public int getAge(){
             return age;
         }
-       ArrayList<String> getCourse(){
+      public ArrayList<String> getCourse(){
         
             return courses;
         }
