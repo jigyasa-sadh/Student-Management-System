@@ -8,13 +8,12 @@ public class StudentService {
     ArrayList<Double> marks=new ArrayList<>();
      
 //add() method-------------------------------
-    void addStudent(){
+       void addStudent(){
         System.out.println("Enter Student Details ---------");
 
     // add name
           
               String name;
-
               while(true){
                 
                 System.out.print("name : ");
@@ -30,26 +29,26 @@ public class StudentService {
                 
     // add id
                 int id;
-
-                
-                 while(true)
+              while(true)
                     {
                     try{
 
 
-                        while(true){
+                    while(true){
+
                     // input id------
                     System.out.print("id : ");
                     id=sc.nextInt();
 
-                    //checks is the input id is already registeres or not
-                   
-                      boolean exit=false;
+                    //checks is the input id is already registered or not
+                     boolean exit=false;
                        for(Student s: students){
                              if(s.getId()==id){
                                 exit=true;
                              }
                        }
+
+                       //if registered so enter agian-----------
                        if(exit){
                         System.out.println("input id is already registered .. Plesw enter another id ----------");
                             
@@ -59,11 +58,8 @@ public class StudentService {
                        }
                     }
 
-                    
+                break;
 
-
-                       
-                    break;
                     }catch(InputMismatchException e){
                             System.out.println("invalid input ! please enter the valid input");
                             sc.nextLine();
@@ -78,6 +74,8 @@ public class StudentService {
        int age;
             while(true){
                 try{
+
+                 //imput age------------   
                 System.out.print("age : ");
                 age=sc.nextInt();
                 break;
@@ -89,24 +87,33 @@ public class StudentService {
                 
     // add course and marks  
     
-     ArrayList<String> courses=new ArrayList<>();
+        ArrayList<String> courses=new ArrayList<>();
          ArrayList<Double> marks=new ArrayList<>();
+                    
+                   // input how many courses you want to add-------- 
                     System.out.println("Enter the no of course to be added");
                     int n=sc.nextInt();
                     sc.nextLine();
-                for(int i=1;i<=n;i++){
+
+                    // loop for add  n courses-----------
+                    for(int i=1;i<=n;i++){
+
+
                         // add course
-                 while(true)
+                      while(true)
                     {
                      
-                    //sc.nextLine();
+                    //input course-----------
                     System.out.print("course " + i +" :");
                     String c=sc.nextLine();
-                    
+                     
+                    // check user enter a course or ramins empty----
                     if(!c.trim().isEmpty()){
                      courses.add(c);
                      break;
                     }
+
+                    //if user does not etere any course show this message-----
                     System.out.println("course can not be empty");
 
                     }
@@ -115,12 +122,17 @@ public class StudentService {
                     while(true)
                         {
                             try{
+                                //input marks----
                             System.out.print("marks : " );
                             double m=sc.nextDouble();
+
+                            //checks if user enter marks grater than 100 or less than 0 -----
                             if(m<0 || m>100){
                                 System.out.println("Enter marks between 0 and 100");
                                  continue;
                             }
+
+                            //if marks is valid so add marks--------
                             marks.add(m);
                             sc.nextLine();
                            
@@ -131,11 +143,14 @@ public class StudentService {
                             }
 
 
-}                  }
+    }                  }
                 
             
                      sc.nextLine();
-                     // add th object od student class in students arraylist
+
+
+
+                     // add th object of student class in students arraylist
                     students.add(new Student(name, id, age,courses , marks));
                     System.out.println("successfully added-----");
                     System.out.println();
@@ -146,17 +161,25 @@ public class StudentService {
 
 // show() method ----------------------------- 
     void showStudent(){
+
+        //check if the list is empty------------
        if(students.isEmpty()){
         System.out.println("student List is empty--------------");
         return;
        }
-        System.out.println("============students details are ====================");
+
+       //if list is not empty----------
+       System.out.println("============students details are ====================");
+
+       //print all students details-----
        for(Student s: students){
    
         System.out.println("Name is : " + s.getName());
         System.out.println("Id is : " + s.getId());
         System.out.println("Age is : "+ s.getAge());
         System.out.print("courses :");
+
+        //print courses----------
         System.out.print("[");
         for(String p: s.getCourse()){
             System.out.print( p+" "  );
@@ -164,6 +187,8 @@ public class StudentService {
         }
         System.out.print("]");
         System.out.println();
+
+        //print marks----------------
         System.out.print("marks : ");
         System.out.print("[");
         for(Double m: s.getMarks()){
@@ -181,28 +206,29 @@ public class StudentService {
 
 //remove() method---------------------------
     void removeStudent(){
-
+  
+        //check if the list is empty------------
         if(students.isEmpty()){
                 System.out.println("student list is empty-------------");
                 return;
           }
         
-          
+          // input id to removed-----------
         System.out.println("Enter essential detail to remove the student -----------");
         System.out.print("id : ");
         int id=sc.nextInt();
         
-          
-       
-        for(Student s: students){
+         //search student in list for remove--------- 
+       for(Student s: students){
            
         if(s.getId()==id){
            if( students.remove(s)){
             System.out.println(s.getName() +" is successfully removed **********");
+            return;
            }
-           else{
+           
             System.out.println("student not found ");
-            }
+            
             }
         }
     
@@ -213,18 +239,22 @@ public class StudentService {
 
 //search() student--------------------
     void searchStudent(){
-
+         
+        //check if the list is empty------------
         if(students.isEmpty()){
                 System.out.println("student list is empty-------------");
                 return;
           }
         
+          //input id
         System.out.println("Enter thr student Id ");
         int id=sc.nextInt();
+
+        //check in list---
         for(Student s : students){
             if(s.getId()==id){
               System.out.println("Student is found");
-        return;
+             return;
                 
             }
            
@@ -279,7 +309,7 @@ public class StudentService {
                             System.out.println("enter a new marks");
                             double m=sc.nextDouble();
                             s.getMarks().set(i, m);
-                            System.out.println(" marksu[dated successfully ");
+                            System.out.println(" marks updated successfully ");
                             return;
                         }
                            
