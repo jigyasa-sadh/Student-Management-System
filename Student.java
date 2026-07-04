@@ -1,4 +1,4 @@
-//package Student-Management-System;
+
 
 import java.util.ArrayList;
 
@@ -8,15 +8,18 @@ private int id;
 private int age;
 private ArrayList<String> courses;
 private ArrayList<Double> marks;
+private double percentage;
+private String grade;
+private String result ;
 
 // constructor
 Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Double>marks){
     this.name=name;
     this.id=id;
     this.age=age;
-  this. courses=courses;
+    this.courses=courses;
     this.marks=marks;
-
+    
 }
 
 //setter method
@@ -42,6 +45,21 @@ Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Doubl
 
         }
 
+        public void setPercentage(double per){
+        this.percentage=per;
+        }
+
+        public void setGrade(String grade){
+                this.grade=grade;
+        }
+        public void setResult(String  result){
+                this.result=result;
+        }
+
+
+
+
+
 //getter method
        public  String getName(){
             return name;
@@ -58,11 +76,19 @@ Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Doubl
             return courses;
         }
 
-            
-        
-       
-       ArrayList<Double> getMarks(){
+            ArrayList<Double> getMarks(){
             return marks;
+        }
+         public double getPercentage(){
+            return percentage;
+        }
+
+
+        public  String getGrade(){
+            return grade;
+        }
+        public  String getResult(){
+            return result;
         }
 
 
