@@ -1,3 +1,11 @@
-# Student-Management-System
-this is my first java project
-hello
+Student Management System (Core Java)A robust, console-based Student Management System built using Core Java. This project demonstrates advanced Object-Oriented Programming (OOP) principles, the Collections Framework (HashMap), File Handling (Serialization), Custom Exceptions, and the Java Streams API.🚀 Features & EnhancementsCRUD Operations: Seamlessly Add, View, Update, Remove, and Search student records.  Optimized Data Structures: Utilizes HashMap<Integer, Student> for lightning-fast $O(1)$ lookups, updates, and deletions by Student ID.  Permanent Data Persistence: Implements Java IO Serialization (ObjectOutputStream / ObjectInputStream) to save and load student data automatically from students_data.txt, ensuring no data loss across application restarts.  Modern Java Streams API:Automatically sorts and displays students in a Merit List based on their percentages in descending order.  Filters and searches student records efficiently.  Robust Exception Handling:Built-in protection against invalid user inputs (InputMismatchException).  Custom Exceptions (StudentNotFoundException, InvalidAgeException) to gracefully manage business logic errors, such as invalid age entries or non-existent IDs.  Automated Calculations: Automatically computes percentages, academic grades (A+ to F), and pass/fail results based on entered course marks.  🛠️ Tech Stack & ConceptsLanguage: Java (Core Java / JDK)  Key Concepts:Collections Framework (HashMap, ArrayList)  Java IO & Serialization  Java 8+ Streams API & Lambdas  Exception Handling (Custom & Built-in Exceptions)  Object-Oriented Programming (Encapsulation, Separation of Concerns)📁 Project StructurePlaintextStudent-Management-System/
+│
+├── Student.java                  # Entity class representing student attributes (implements Serializable)[cite: 9]
+├── StudentService.java           # Business logic layer (CRUD, File IO, Streams, HashMap)[cite: 16]
+├── StudentManagementSystem.java  # Main execution class with console menu interface[cite: 11]
+├── StudentNotFoundException.java # Custom exception for missing student records[cite: 13]
+├── InvalidAgeException.java      # Custom exception for invalid age validation[cite: 7]
+└── students_data.txt             # Serialized file for permanent data storage[cite: 14, 16]
+⚙️ How to Run the ProjectClone or Download this repository/folder to your local machine.Open your terminal or IDE (such as IntelliJ IDEA or Eclipse) in the project directory.Compile all Java files:Bashjavac *.java
+Run the main application:Bashjava StudentManagementSystem
+💡 Future ScopeMigrating data persistence from File Handling to a Relational Database (MySQL) using JDBC.Upgrading the application into a full-stack web application using Spring Boot and an HTML/CSS/JavaScript frontend.
