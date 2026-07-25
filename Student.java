@@ -1,16 +1,18 @@
 
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student {
-private String name;
-private int id;
-private int age;
-private ArrayList<String> courses;
-private ArrayList<Double> marks;
-private double percentage;
-private String grade;
-private String result ;
+public class Student implements Serializable { // <-- implements Serializable jodein
+    private static final long serialVersionUID = 1L;
+
+    private String name;
+    private int id;
+    private int age;
+    private ArrayList<String> courses;
+    private ArrayList<Double> marks;
+    private double percentage;
+    private String grade;
+    private String result;
 
 // constructor
 Student(String name ,int id,int age, ArrayList<String> courses,  ArrayList<Double>marks){
